@@ -8,7 +8,7 @@ export default function CategoryCard({
   categoryIconAltText,
 }) {
   return (
-    <Card key={id}>
+    <Card onClick={handleClick} key={id}>
       <Wrapper>
         <Icon src={categoryIcon} alt={categoryIconAltText} />
         <Category>{categoryTitle}</Category>
@@ -17,7 +17,11 @@ export default function CategoryCard({
   )
 }
 
-CategoryCard.protoTypes = {
+function handleClick() {
+  console.log('click')
+}
+
+CategoryCard.propTypes = {
   id: PropTypes.string,
   categoryIcon: PropTypes.string,
   categoryIconAltText: PropTypes.string,
@@ -34,7 +38,7 @@ const Card = styled.button`
   background-color: #3296a8;
   color: white;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 0;
 `
 

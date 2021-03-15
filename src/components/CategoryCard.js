@@ -35,15 +35,14 @@ const Card = styled.button`
   flex-grow: 1;
   height: 150px;
   width: 150px;
-  background-color: #3296a8;
-  color: white;
+  background-color: #eee;
+  color: #000;
   text-decoration: none;
-  border-radius: 5px;
   border: 0;
 `
 
 const Icon = styled.img`
-  width: 50px;
+  width: 40px;
   height: auto;
 `
 
@@ -54,4 +53,5 @@ const Wrapper = styled.div`
 
 const Category = styled.h2`
   font-size: 14px;
+  margin-bottom: 0;
 `

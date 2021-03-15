@@ -23,5 +23,5 @@ const CategoriesWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  padding: 10px;
+  padding: 5px;
 `

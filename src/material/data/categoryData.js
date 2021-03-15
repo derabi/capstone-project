@@ -3,9 +3,9 @@ import fussballIcon from '../icons/fussballIcon.svg'
 import laufenIcon from '../icons/laufenIcon.svg'
 import basketballIcon from '../icons/basketballIcon.svg'
 import fitnessIcon from '../icons/fitnessIcon.svg'
-import radfahrenIcon from '../icons/radfahrenIcon.svg'
+import turnenIcon from '../icons/turnenIcon.svg'
 import footballIcon from '../icons/footballIcon.svg'
-import dartIcon from '../icons/dartIcon.svg'
+import hockeyIcon from '../icons/hockeyIcon.svg'
 import kampfsportIcon from '../icons/kampfsportIcon.svg'
 import tennisIcon from '../icons/tennisIcon.svg'
 import volleyballIcon from '../icons/volleyballIcon.svg'
@@ -31,9 +31,9 @@ export const sports = [
   },
   {
     id: uuid(),
-    categoryTitle: 'Radfahren',
-    categoryIcon: radfahrenIcon,
-    categoryIconAltText: 'Radfahren',
+    categoryTitle: 'Turnen',
+    categoryIcon: turnenIcon,
+    categoryIconAltText: 'Turnen',
   },
   {
     id: uuid(),
@@ -49,8 +49,8 @@ export const sports = [
   },
   {
     id: uuid(),
-    categoryTitle: 'Dart',
-    categoryIcon: dartIcon,
+    categoryTitle: 'Hockey',
+    categoryIcon: hockeyIcon,
     categoryIconAltText: 'Dart',
   },
   {

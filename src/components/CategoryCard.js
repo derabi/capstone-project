@@ -1,24 +1,22 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 export default function CategoryCard({
+  categoryLink,
   id,
   categoryIcon,
   categoryTitle,
   categoryIconAltText,
 }) {
   return (
-    <Card onClick={handleClick} key={id}>
+    <Card to={categoryLink} key={id}>
       <Wrapper>
         <Icon src={categoryIcon} alt={categoryIconAltText} />
         <Category>{categoryTitle}</Category>
       </Wrapper>
     </Card>
   )
-}
-
-function handleClick() {
-  console.log('click')
 }
 
 CategoryCard.propTypes = {
@@ -28,7 +26,7 @@ CategoryCard.propTypes = {
   categoryTitle: PropTypes.string,
 }
 
-const Card = styled.button`
+const Card = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;

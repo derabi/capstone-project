@@ -6,8 +6,15 @@ export default function Categories() {
   return (
     <CategoriesWrapper>
       {sports.map(
-        ({ id, categoryTitle, categoryIcon, categoryIconAltText }) => (
+        ({
+          categoryLink,
+          id,
+          categoryTitle,
+          categoryIcon,
+          categoryIconAltText,
+        }) => (
           <CategoryCard
+            categoryLink={categoryLink}
             id={id}
             categoryTitle={categoryTitle}
             categoryIcon={categoryIcon}

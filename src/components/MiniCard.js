@@ -1,12 +1,14 @@
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
-import fussballer from '../material/images/fussballer.png'
+// import PropTypes from 'prop-types'
 import { IconContext } from 'react-icons'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { AiFillCalendar } from 'react-icons/ai'
 import { AiFillStar } from 'react-icons/ai'
 
+import { Link } from 'react-router-dom'
+
 export default function MiniCard({
+  cardLink,
   cardImage,
   cardImageAltText,
   cardTitle,
@@ -16,7 +18,7 @@ export default function MiniCard({
 }) {
   return (
     <IconContext.Provider value={{ size: '14px' }}>
-      <Card>
+      <Card to={cardLink}>
         <ImageWrapper>
           <Image src={cardImage} alt={cardImageAltText} />
         </ImageWrapper>
@@ -44,11 +46,13 @@ export default function MiniCard({
   )
 }
 
-const Card = styled.section`
+const Card = styled(Link)`
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 10px;
   background-color: #eee;
+  color: black;
+  text-decoration: none;
   margin: 5px;
 `
 

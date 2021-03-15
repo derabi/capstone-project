@@ -4,6 +4,7 @@ import { IconContext } from 'react-icons'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { AiFillCalendar } from 'react-icons/ai'
 import { AiFillStar } from 'react-icons/ai'
+import { AiOutlineStar } from 'react-icons/ai'
 
 import { Link } from 'react-router-dom'
 
@@ -12,6 +13,7 @@ export default function MiniCard({
   cardImage,
   cardImageAltText,
   cardTitle,
+  cardStars,
   price,
   place,
   dates,
@@ -25,11 +27,12 @@ export default function MiniCard({
         <DetailsWrapper>
           <Title>{cardTitle}</Title>
           <StarsWrapper>
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
+            {[...Array(cardStars)].map(star => (
+              <AiFillStar />
+            ))}
+            {[...Array(5 - cardStars)].map(star => (
+              <AiOutlineStar />
+            ))}
           </StarsWrapper>
           <Price>{price}</Price>
           <PlaceWrapper>
@@ -100,46 +103,3 @@ const PlaceWrapper = styled.div`
 const Place = styled.div`
   font-size: 12px;
 `
-
-/* 
-
-import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
-import fussballer from '../material/images/fussballer.png'
-import { IconContext } from 'react-icons'
-import { FaMapMarkerAlt } from 'react-icons/fa'
-import { AiFillCalendar } from 'react-icons/ai'
-import { AiFillStar } from 'react-icons/ai'
-
-export default function MiniCard({}) {
-  return (
-    <IconContext.Provider value={{ size: '14px' }}>
-      <Card>
-        <ImageWrapper>
-          <Image src={fussballer} alt=" " />
-        </ImageWrapper>
-        <DetailsWrapper>
-          <Title>Fußball bei Victoria Hamburg</Title>
-          <StarsWrapper>
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-          </StarsWrapper>
-          <Price>Ab 10€</Price>
-          <PlaceWrapper>
-            <FaMapMarkerAlt />
-            <Place>20359 Hamburg</Place>
-          </PlaceWrapper>
-          <DatesWrapper>
-            <AiFillCalendar />
-            <Dates>Mo, Di, Mi, Do, Fr</Dates>
-          </DatesWrapper>
-        </DetailsWrapper>
-      </Card>
-    </IconContext.Provider>
-  )
-}
-
-*/

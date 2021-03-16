@@ -3,12 +3,12 @@ import fussballImage2 from '../images/fussballImage2.png'
 import fussballImage3 from '../images/fussballImage3.png'
 import fussballImage4 from '../images/fussballImage4.png'
 import fussballImage5 from '../images/fussballImage5.png'
-import fussballImage6 from '../images/fussballImage6.png'
+// import fussballImage6 from '../images/fussballImage6.png'
 import fussballImage7 from '../images/fussballImage7.png'
 
 export const options = [
   {
-    cardLink: '/link1',
+    cardLink: '/products/1',
     cardImage: fussballImage1,
     cardImageAltText: 'fussball',
     cardTitle: 'Fußball bei Victoria Hamburg',
@@ -49,8 +49,8 @@ export const options = [
     cardImageAltText: 'fussball',
     cardTitle: 'Kicken in der Soccerhalle',
     cardStars: 4,
-    price: 'Ab 10€ monatlich',
-    place: '22527 Hamburg',
+    price: '10€',
+    place: '30519 Hannover',
     dates: '15.03.2021',
   },
   {

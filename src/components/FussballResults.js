@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import MiniCard from './MiniCard'
 import { options } from '../material/data/fussballData.js'
+import CityFilter from './CityFilter.js'
 
 export default function FussballResults() {
   return (

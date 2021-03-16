@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Fußball bei Victoria Hamburg",
+      "imgURL": "../images/fussballImage1",
+      "body": "Treffen um 10 uhr bei victoria, mit treten",
+      "price": "10",
+      "zip": 22529,
+      "city": "Hamburg",
+      "date": "Mo, Di, Mi, Do, Fr",
+      "rating": 4
+    },
+    {
+      "id": 2,
+      "title": "Kicken in der Soccerhalle",
+      "imgURL": "../images/fussballImage2",
+      "body": "ohne treten",
+      "price": "10",
+      "zip": 2257,
+      "city": "Hamburg",
+      "date": "Mo, Di, Mi, Do, Fr",
+      "rating": 3
+    }
+  ]
+}

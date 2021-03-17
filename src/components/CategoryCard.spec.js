@@ -6,13 +6,7 @@ import icon from '../material/icons/fussballIcon.svg'
 
 describe('CategoryCard', () => {
   it('renders a card with title, image and altText', () => {
-    render(
-      <CategoryCard
-        categoryTitle="testTitle"
-        categoryIcon={icon}
-        categoryIconAltText="testAltText"
-      />
-    )
+    render(<CategoryCard title="testTitle" icon={icon} altText="testAltText" />)
     expect(screen.getByText('testTitle')).toBeInTheDocument()
     expect(screen.getByAltText('testAltText')).toBeInTheDocument()
     expect(screen.getByRole('img')).toBeInTheDocument()

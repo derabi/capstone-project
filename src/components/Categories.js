@@ -1,20 +1,18 @@
 import styled from 'styled-components/macro'
 import CategoryCard from './CategoryCard'
-import { sports } from '../material/data/categoryData.js'
+import { categories } from '../material/data/data.json'
 
 export default function Categories() {
   return (
     <CategoriesWrapper>
-      {sports.map(
-        ({ id, categoryTitle, categoryIcon, categoryIconAltText }) => (
-          <CategoryCard
-            id={id}
-            categoryTitle={categoryTitle}
-            categoryIcon={categoryIcon}
-            categoryIconAltText={categoryIconAltText}
-          />
-        )
-      )}
+      {categories.map(category => (
+        <CategoryCard
+          id={category.id}
+          title={category.title}
+          icon={category.icon}
+          altText={category.altText}
+        />
+      ))}
     </CategoriesWrapper>
   )
 }
@@ -23,5 +21,5 @@ const CategoriesWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  padding: 10px;
+  padding: 5px;
 `

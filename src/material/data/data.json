@@ -1,0 +1,64 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "title": "Fußball",
+      "icon": "../icons/fussballIcon.svg",
+      "altText": "Fussball Icon"
+    },
+    {
+      "id": "2",
+      "title": "Laufen",
+      "icon": "../icons/laufenIcon.svg",
+      "altText": "Laufen Icon"
+    },
+    {
+      "id": "3",
+      "title": "Fitness",
+      "icon": "../icons/fitnessIcon.svg",
+      "altText": "Fitness Icon"
+    },
+    {
+      "id": "4",
+      "title": "Turnen",
+      "icon": "../icons/turnenIcon.svg",
+      "altText": "Turnen Icon"
+    },
+    {
+      "id": "5",
+      "title": "Basketball",
+      "icon": "../icons/basketballIcon.svg",
+      "altText": "Basketball Icon"
+    },
+    {
+      "id": "6",
+      "title": "Football",
+      "icon": "../icons/footballIcon.svg",
+      "altText": "Football Icon"
+    },
+    {
+      "id": "7",
+      "title": "Hockey",
+      "icon": "../icons/hockeyIcon.svg",
+      "altText": "Hockey Icon"
+    },
+    {
+      "id": "8",
+      "title": "Volleyball",
+      "icon": "../icons/volleyballIcon.svg",
+      "altText": "Volleyball Icon"
+    },
+    {
+      "id": "9",
+      "title": "Tennis",
+      "icon": "../icons/tennisIcon.svg",
+      "altText": "Tennis Icon"
+    },
+    {
+      "id": "10",
+      "title": "Boxen",
+      "icon": "../icons/boxenIcon.svg",
+      "altText": "Boxen Icon"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import LinesEllipsis from 'react-lines-ellipsis'
 import { IconContext } from 'react-icons'
 import { FaMapMarkerAlt } from 'react-icons/fa'
@@ -53,6 +53,18 @@ export default function MiniCard({
       </Card>
     </IconContext.Provider>
   )
+}
+
+MiniCard.propTypes = {
+  image: PropTypes.string,
+  altText: PropTypes.string,
+  title: PropTypes.string,
+  stars: PropTypes.number,
+  price: PropTypes.number,
+  frequency: PropTypes.string,
+  zip: PropTypes.string,
+  city: PropTypes.string,
+  dates: PropTypes.string,
 }
 
 const Card = styled.section`

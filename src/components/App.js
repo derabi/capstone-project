@@ -1,4 +1,3 @@
-// import styled from 'styled-components/macro'
 import Categories from './Categories'
 import Results from './Results'
 

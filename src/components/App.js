@@ -12,11 +12,11 @@ export default function App() {
           <Route exact path="/">
             <Categories />
           </Route>
-          <Route>
-            <ProductCard exact path="/productCard" />
-          </Route>
-          <Route exact path="/fussball">
+          <Route exact path="/Results">
             <Results />
+          </Route>
+          <Route>
+            <ProductCard exact path="/products/:id" />
           </Route>
         </Switch>
       </div>

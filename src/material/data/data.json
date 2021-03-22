@@ -134,6 +134,18 @@
       "zip": "80331",
       "city": "München",
       "dates": "Mo, Do, Fr"
+    },
+    {
+      "id": 7,
+      "image": "../images/fussball/fussballImage1.png",
+      "altText": "",
+      "title": "Fußball bei Victoria Hamburg",
+      "stars": 4,
+      "price": 30,
+      "frequency": "monatlich",
+      "zip": "22729",
+      "city": "Hamburgo",
+      "dates": "Mo, Di, Mi, Do, Freutag"
     }
   ]
 }

@@ -1,5 +1,6 @@
 import Categories from './Categories'
 import Results from './Results'
+import ProductCard from './ProductCard'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -12,6 +13,9 @@ export default function App() {
             <Categories />
           </Route>
           <Route>
+            <ProductCard exact path="/productCard" />
+          </Route>
+          <Route exact path="/fussball">
             <Results />
           </Route>
         </Switch>

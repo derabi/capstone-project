@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Categories from './Categories'
-import Results from './Results'
+import ResultsPage from './ResultsPage'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -14,7 +14,7 @@ export default function App() {
             <Categories />
           </Route>
           <Route>
-            <Results userInput={userInput} setUserInput={setUserInput} />
+            <ResultsPage userInput={userInput} setUserInput={setUserInput} />
           </Route>
         </Switch>
       </div>

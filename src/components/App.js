@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Categories from './Categories'
 import Results from './Results'
 import ProductCard from './ProductCard'
@@ -5,6 +6,7 @@ import ProductCard from './ProductCard'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 export default function App() {
+  const [userInput, setUserInput] = useState('')
   return (
     <Router>
       <div>
@@ -12,11 +14,11 @@ export default function App() {
           <Route exact path="/">
             <Categories />
           </Route>
-          <Route exact path="/Results">
-            <Results />
+          <Route exact path="/products/:id">
+            <ProductCard />
           </Route>
           <Route>
-            <ProductCard exact path="/products/:id" />
+            <Results userInput={userInput} setUserInput={setUserInput} />
           </Route>
         </Switch>
       </div>

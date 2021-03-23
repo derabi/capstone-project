@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import fussball from '../material/images/fussball/fussballImage1.png'
+import fussball2 from '../material/images/fussball/fussballImage2.png'
 import { IconContext } from 'react-icons'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { IoMdArrowDropdown } from 'react-icons/io'
@@ -109,7 +110,7 @@ export default function ProductCard({
             <img src={fussball} alt="" width="100%" />
           </div>
           <div>
-            <img src={fussball} alt="" width="100%" />
+            <img src={fussball2} alt="" width="100%" />
           </div>
         </ImageSlider>
         <DetailsWrapper>
@@ -137,13 +138,13 @@ export default function ProductCard({
                   setDropdown(e.target.value)
                 }}
               >
-                <option value="20">2. Herren Mannschaft</option>
-                <option value="10">A-Jugend</option>
+                <option value="10">2. Herren Mannschaft</option>
+                <option value="15">A-Jugend</option>
                 <option value="20">B-Jugend</option>
-                <option value="10">C-Jugend</option>
-                <option value="20">D-Jugend</option>
-                <option value="10">E-Jugend</option>
-                <option value="20">E-Jugend</option>
+                <option value="25">C-Jugend</option>
+                <option value="30">D-Jugend</option>
+                <option value="35">E-Jugend</option>
+                <option value="40">E-Jugend</option>
               </Dropdown>
               <DropdownIcon size="24px" />
               <Button>Termin Buchen</Button>
@@ -367,6 +368,9 @@ const RatingRadioInput = styled.input.attrs({
   type: 'radio',
 })`
   display: none;
+  &:focus {
+    outline: none;
+  }
 `
 
 const RatingAuthor = styled.input.attrs({
@@ -378,6 +382,9 @@ const RatingAuthor = styled.input.attrs({
   margin-bottom: 5px;
   font-family: sans-serif;
   font-size: 12px;
+  &:focus {
+    outline: none;
+  }
 `
 
 const RatingTextarea = styled.textarea`
@@ -386,7 +393,9 @@ const RatingTextarea = styled.textarea`
   padding: 10px;
   font-family: sans-serif;
   font-size: 12px;
-  outline: none;
+  &:focus {
+    outline: none;
+  }
 `
 
 const RatingButton = styled.button`

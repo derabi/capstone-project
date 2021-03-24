@@ -62,7 +62,7 @@
     }
   ],
 
-  "products": [
+  "options": [
     {
       "id": 1,
       "image": "../images/fussball/fussballImage1.png",

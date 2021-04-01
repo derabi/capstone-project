@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Categories from './Categories'
 import Results from './Results'
 import ProductCard from './ProductCard'
+import Review from './Review'
+import CreateForm from './CreateForm'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -11,7 +13,10 @@ export default function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/">
+          <Route>
+            <CreateForm />
+          </Route>
+          {/*<Route exact path="/">
             <Categories />
           </Route>
           <Route exact path="/products/:id">
@@ -19,7 +24,7 @@ export default function App() {
           </Route>
           <Route>
             <Results userInput={userInput} setUserInput={setUserInput} />
-          </Route>
+  </Route>*/}
         </Switch>
       </div>
     </Router>

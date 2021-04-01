@@ -1,73 +1,105 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import fussball from '../material/images/fussball/fussballImage1.png'
-import fussball2 from '../material/images/fussball/fussballImage2.png'
+
+import StarRating from './StarRating'
+import ImageCarousel from './ImageCarousel'
+import DropdownForm from './DropdownForm'
+import Review from './Review'
+import ReviewCard from './ReviewCard'
+
+import Logo from '../material/images/fussball/LogoScVictoria.png'
+
+import { products } from '../material/data/data.json'
 import { IconContext } from 'react-icons'
 import { FaMapMarkerAlt } from 'react-icons/fa'
-import { IoMdArrowDropdown } from 'react-icons/io'
 import { AiOutlinePlusSquare } from 'react-icons/ai'
 import { AiFillPlusSquare } from 'react-icons/ai'
 import { AiFillCalendar } from 'react-icons/ai'
 import { AiFillHome } from 'react-icons/ai'
-import { AiFillStar } from 'react-icons/ai'
-import { AiOutlineStar } from 'react-icons/ai'
-
-const bookmark = <AiOutlinePlusSquare size="30" />
-const unbookmark = <AiFillPlusSquare size="30" />
 
 export default function ProductCard({
   id,
-  title,
-  stars,
-  price,
-  frequency,
-  zip,
-  city,
-  dates,
-  description,
+  title = 'Mustertitel',
+  price = 10,
+  frequency = 'monatlich',
+  provider = 'Musterverein',
+  address = 'Musterstraße 159',
+  zip = '22099',
+  city = 'Hamburg',
+  dates = 'Mo, Di, Mi, Do, Fr',
+  description = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua..',
 }) {
   const [bookmarkedCard, setbookmarkedCard] = useState([])
-  const [dropdown, setDropdown] = useState('20')
-  const [rating, setRating] = useState(null)
-  const [hover, setHover] = useState(null)
   const [reviewCards, setreviewCards] = useState([])
 
-  function ReviewCard({ title, details, color }) {
-    return (
-      <ReviewWrapper>
-        <StarWrapper>
-          {[...Array(rating || 0)].map(star => (
-            <AiFillStar />
-          ))}
-          {[...Array(5 - rating)].map(star => (
-            <AiOutlineStar />
-          ))}
-        </StarWrapper>
-        <ReviewTitle>{title}</ReviewTitle>
-        <ReviewDetails>{details}</ReviewDetails>
-      </ReviewWrapper>
-    )
-  }
+  const bookmark = <Bookmarked />
+  const unbookmark = <Unbookmarked />
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    const form = event.target
-    const { title: titleInput, details: detailsTextarea } = form.elements
-    const newCard = { title: titleInput.value, details: detailsTextarea.value }
-    setreviewCards([newCard, ...reviewCards])
-  }
-
-  const sliderSettings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
+  return (
+    <IconContext.Provider value={{ size: '14px' }}>
+      <Card key={id}>
+        <HeaderWrapper>
+          <Title>{title}</Title>
+          <BookmarkWrapper>
+            <StarRating />
+            <BookmarkButton
+              role="button"
+              aria-label="toggle-bookmark"
+              onClick={() => bookmarkCard()}
+            >
+              {bookmarkedCard.includes() ? bookmark : unbookmark}
+            </BookmarkButton>
+          </BookmarkWrapper>
+        </HeaderWrapper>
+        <ImageCarousel />
+        <MainWrapper>
+          <DetailsWrapper>
+            <Price>
+              {price > 0 ? price + '€' : 'Kostenlos'} {frequency}
+            </Price>
+            <ProviderWrapper>
+              <AiFillHome />
+              <Provider>{provider}</Provider>
+            </ProviderWrapper>
+            <AddressWrapper>
+              <FaMapMarkerAlt />
+              <Address>
+                {address}, {zip} {city}
+              </Address>
+            </AddressWrapper>
+            <DatesWrapper>
+              <AiFillCalendar />
+              <Dates>{dates}</Dates>
+            </DatesWrapper>
+          </DetailsWrapper>
+          <DropdownForm />
+          <DescriptionWrapper>
+            <DescriptionTitle>Beschreibung</DescriptionTitle>
+            <Description>{description}</Description>
+          </DescriptionWrapper>
+          <RatingWrapper>
+            <Review title={title} onSubmitReview={handleReview} />
+            <Reviews>
+              {reviewCards.map(card => (
+                <ReviewCard
+                  title={card.title}
+                  details={card.details}
+                  rating={card.rating}
+                />
+              ))}
+            </Reviews>
+          </RatingWrapper>
+          <ProviderContainer>
+            <ProviderTitle>Anbieter</ProviderTitle>
+            <ProviderCard>
+              <ProviderImage src={Logo} alt="" width="50px" height="auto" />
+              <ProviderName>{provider}</ProviderName>
+            </ProviderCard>
+          </ProviderContainer>
+        </MainWrapper>
+      </Card>
+    </IconContext.Provider>
+  )
 
   function bookmarkCard(currentId) {
     let newArray
@@ -82,175 +114,60 @@ export default function ProductCard({
     console.log(newArray)
   }
 
-  return (
-    <IconContext.Provider value={{ size: '14px' }}>
-      <Card>
-        <HeaderWrapper>
-          <Title>Fußball bei Victoria Hamburg</Title>
-          <StarBookmarkWrapper>
-            <StarWrapper>
-              {[...Array(rating || 0)].map(star => (
-                <AiFillStar />
-              ))}
-              {[...Array(5 - rating)].map(star => (
-                <AiOutlineStar />
-              ))}
-            </StarWrapper>
-            <BookmarkButton
-              role="button"
-              aria-label="toggle-bookmark"
-              onClick={() => bookmarkCard(3)}
-            >
-              {bookmarkedCard.includes(3) ? unbookmark : bookmark}
-            </BookmarkButton>
-          </StarBookmarkWrapper>
-        </HeaderWrapper>
-        <ImageSlider {...sliderSettings}>
-          <div>
-            <img src={fussball} alt="" width="100%" />
-          </div>
-          <div>
-            <img src={fussball2} alt="" width="100%" />
-          </div>
-        </ImageSlider>
-        <DetailsWrapper>
-          <Price>{dropdown}€ monatlich</Price>
-          <InfoWrapper>
-            <ProviderWrapper>
-              <AiFillHome />
-              <Provider>SC Victoria Hamburg</Provider>
-            </ProviderWrapper>
-            <PlaceWrapper>
-              <FaMapMarkerAlt />
-              <Place>Musterstraße 123, 22222 Hamburg</Place>
-            </PlaceWrapper>
-            <DatesWrapper>
-              <AiFillCalendar />
-              <Dates>Mo, Di, Mi, Do, Fr</Dates>
-            </DatesWrapper>
-          </InfoWrapper>
-          <Form>
-            <DropdownLabel>Wähle eine Option</DropdownLabel>
-            <FormWrapper>
-              <Dropdown
-                value={dropdown}
-                onChange={e => {
-                  setDropdown(e.target.value)
-                }}
-              >
-                <option value="10">2. Herren Mannschaft</option>
-                <option value="15">A-Jugend</option>
-                <option value="20">B-Jugend</option>
-                <option value="25">C-Jugend</option>
-                <option value="30">D-Jugend</option>
-                <option value="35">E-Jugend</option>
-                <option value="40">E-Jugend</option>
-              </Dropdown>
-              <DropdownIcon size="24px" />
-              <Button>Termin Buchen</Button>
-            </FormWrapper>
-          </Form>
-          <DescriptionWrapper>
-            <DescriptionTitle>Beschreibung</DescriptionTitle>
-            <Description>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et justo duo
-              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-              sanctus est Lorem ipsum dolor sit amet.
-            </Description>
-          </DescriptionWrapper>
-          <RatingWrapper>
-            <RatingForm onSubmit={handleSubmit}>
-              <RatingTitle>Bewertung</RatingTitle>
-              <RatingText>
-                Gib eine Bewertung ab zu <br />
-                <i>Fußball bei Victoria Hamburg</i>
-              </RatingText>
-              <RatingStars>
-                {[...Array(5)].map((star, i) => {
-                  const ratingValue = i + 1
-                  return (
-                    <RatingRadioLabel>
-                      <RatingRadioInput
-                        type="radio"
-                        name="rating"
-                        value={ratingValue}
-                        onClick={() => setRating(ratingValue)}
-                      />
-                      <AiFillStar
-                        onMouseEnter={() => setHover(ratingValue)}
-                        onMouseLeave={() => setHover(null)}
-                        color={
-                          ratingValue <= (hover || rating) ? '#ffc107' : '#000'
-                        }
-                        size="30"
-                      />
-                    </RatingRadioLabel>
-                  )
-                })}
-                <RatingAuthor name="title" placeholder="Dein Name" />
-                <RatingTextarea
-                  name="details"
-                  placeholder="Schreibe eine Bewertung"
-                />
-                <RatingButton>Bewerten</RatingButton>
-              </RatingStars>
-            </RatingForm>
-            {reviewCards.map(card => (
-              <ReviewCard title={card.title} details={card.details} />
-            ))}
-          </RatingWrapper>
-        </DetailsWrapper>
-      </Card>
-    </IconContext.Provider>
-  )
+  function handleReview(newCard) {
+    setreviewCards([newCard, ...reviewCards])
+  }
 }
 
 const Card = styled.div``
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.section`
   display: grid;
   gap: 5px;
-  padding: 10px 5px;
+  padding: 10px 5px 5px;
   background-color: #eee;
 `
 const Title = styled.h2`
   font-size: 14px;
   margin: 0;
 `
-const StarBookmarkWrapper = styled.div`
+const BookmarkWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
 `
 
-const StarWrapper = styled.div``
+const Unbookmarked = styled(AiOutlinePlusSquare)`
+  height: 30px;
+  width: 30px;
+`
+
+const Bookmarked = styled(AiFillPlusSquare)`
+  height: 30px;
+  width: 30px;
+`
 
 const BookmarkButton = styled.button`
   border: none;
-`
-
-const ImageSlider = styled(Slider)`
-  .slick-dots {
-    bottom: 10px;
-  }
-`
-
-const DetailsWrapper = styled.main`
-  padding: 10px 5px;
-`
-
-const Price = styled.span`
-  font-size: 14px;
-  font-weight: 600;
+  padding: 0;
   margin: 0;
 `
 
-const InfoWrapper = styled.div`
+const MainWrapper = styled.main`
+  padding: 10px 5px;
+  display: grid;
+  gap: 30px;
+`
+
+const Price = styled.h3`
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 5px;
+`
+
+const DetailsWrapper = styled.div`
   display: grid;
   gap: 5px;
-  margin: 10px 0;
 `
 
 const ProviderWrapper = styled.div`
@@ -263,12 +180,12 @@ const Provider = styled.div`
   padding-top: 2px;
 `
 
-const PlaceWrapper = styled.div`
+const AddressWrapper = styled.div`
   display: flex;
   gap: 5px;
 `
 
-const Place = styled.div`
+const Address = styled.div`
   font-size: 12px;
   padding-top: 2px;
 `
@@ -283,48 +200,8 @@ const Dates = styled.div`
   padding-top: 2px;
 `
 
-const Form = styled.form``
-
-const DropdownLabel = styled.label`
-  font-size: 12px;
-  font-weight: 600;
-`
-
-const FormWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-`
-
-const Dropdown = styled.select`
-  -webkit-appearance: none;
-  background-color: #eee;
-  border: 0 solid transparent;
-  width: 100%;
-  height: 50px;
-  font-size: 14px;
-  position: relative;
-`
-const DropdownIcon = styled(IoMdArrowDropdown)`
-  position: absolute;
-  right: 10px;
-  margin-top: 15px;
-`
-
-const Button = styled.button`
-  width: 80%;
-  height: 50px;
-  border: 0 solid transparent;
-  border-radius: 5px;
-  background-color: black;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-`
-
 const DescriptionWrapper = styled.section`
-  padding: 50px 10px;
+  padding: 20px 10px;
   display: grid;
   gap: 10px;
 `
@@ -336,91 +213,45 @@ const DescriptionTitle = styled.h3`
 
 const Description = styled.p`
   font-size: 12px;
-  line-height: 1.2em;
+  line-height: 1.3em;
   margin: 0;
 `
 
 const RatingWrapper = styled.section`
+  display: grid;
+  gap: 30px;
   padding: 0 10px;
 `
 
-const RatingForm = styled.form`
+const Reviews = styled.div``
+
+const ProviderContainer = styled.section`
   display: grid;
   gap: 10px;
+  padding: 0 10px;
 `
 
-const RatingTitle = styled.h3`
+const ProviderTitle = styled.h3`
   font-size: 14px;
   margin: 0;
 `
 
-const RatingText = styled.p`
+const ProviderCard = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  border: 0.5px solid grey;
+`
+
+const ProviderImage = styled.img`
+  width: 50px;
+  height: auto;
+  border-radius: 100px;
+`
+
+const ProviderName = styled.h5`
   font-size: 12px;
-  line-height: 1.2em;
   margin: 0;
-`
-
-const RatingStars = styled.div``
-
-const RatingRadioLabel = styled.label``
-
-const RatingRadioInput = styled.input.attrs({
-  type: 'radio',
-})`
-  display: none;
-  &:focus {
-    outline: none;
-  }
-`
-
-const RatingAuthor = styled.input.attrs({
-  type: 'text',
-})`
-  width: 100%;
-  padding: 10px;
-  border: 1px solid grey;
-  margin-bottom: 5px;
-  font-family: sans-serif;
-  font-size: 12px;
-  &:focus {
-    outline: none;
-  }
-`
-
-const RatingTextarea = styled.textarea`
-  width: 100%;
-  height: 100px;
-  padding: 10px;
-  font-family: sans-serif;
-  font-size: 12px;
-  &:focus {
-    outline: none;
-  }
-`
-
-const RatingButton = styled.button`
-  width: 50%;
-  height: 50px;
-  border: 0 solid transparent;
-  border-radius: 5px;
-  background-color: black;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  margin-top: 10px;
-`
-
-const ReviewDetails = styled.p`
-  font-size: 12px;
-`
-
-const ReviewWrapper = styled.section`
-  display: grid;
-  gap: 5px;
-  margin-top: 30px;
-`
-
-const ReviewTitle = styled.h4`
-  margin: 0;
-  font-size: 14px;
+  line-height: 1.3em;
 `

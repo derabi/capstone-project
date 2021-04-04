@@ -61,7 +61,66 @@
       "altText": "Boxen Icon"
     }
   ],
-
+  "appointments": [
+    {
+      "timeHour": "",
+      "timeMinute": "",
+      "dateDay": "",
+      "dateMonth": "",
+      "dateYear": "",
+      "productID": "1",
+      "id": 1
+    },
+    {
+      "time": "",
+      "dateDay": "13",
+      "dateMonth": "01",
+      "dateYear": "2021",
+      "productID": "1",
+      "id": 2
+    },
+    {
+      "time": "630",
+      "dateDay": "16",
+      "dateMonth": 11,
+      "dateYear": "2021",
+      "productID": "1",
+      "id": 3
+    },
+    {
+      "time": "630",
+      "dateDay": "14",
+      "dateMonth": 4,
+      "dateYear": 2021,
+      "productID": "2",
+      "id": 4
+    },
+    {
+      "time": "645",
+      "dateDay": "14",
+      "dateMonth": 5,
+      "dateYear": 2021,
+      "productID": "1",
+      "id": 5
+    },
+    {
+      "time": "885",
+      "dateDay": "16",
+      "dateMonth": 6,
+      "dateYear": 2022,
+      "productID": "2",
+      "id": 6
+    },
+    {
+      "time": "780",
+      "dateDay": "17",
+      "dateMonth": 8,
+      "dateYear": 2021,
+      "productID": "1",
+      "id": 7
+    }
+  ],
+  "bookmarks": [],
   "products": [
     {
       "id": 1,

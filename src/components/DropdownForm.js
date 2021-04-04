@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components/macro'
 
 import { IoMdArrowDropdown } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 
 export default function DropdownForm() {
   const [dropdown, setDropdown] = useState('20')
@@ -26,7 +27,9 @@ export default function DropdownForm() {
         </Dropdown>
         <DropdownIcon />
       </Label>
-      <Button>Termin Buchen</Button>
+      <Link to="/products/1/book">
+        <Button>Termin Buchen</Button>
+      </Link>
     </Form>
   )
 }

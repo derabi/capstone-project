@@ -14,7 +14,11 @@ import { BsPerson } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'
 
 export default function Navigation() {
-  const [activeIcon, setActiveIcon] = useState(false)
+  const [activeIcon, setActiveIcon] = useState(1)
+
+  function handleClick(prop) {
+    setActiveIcon(true)
+  }
 
   return (
     <IconContext.Provider value={{ size: '20px' }}>
@@ -25,9 +29,9 @@ export default function Navigation() {
           to="/"
           style={{ color: '#000' }}
           activeStyle={{}}
-          onClick={() => setActiveIcon(true)}
+          onClick={() => setActiveIcon(1)}
         >
-          {activeIcon ? <AiFillHome /> : <AiOutlineHome />}
+          {activeIcon === 1 ? <AiFillHome /> : <AiOutlineHome />}
           Home
         </NavButton>
         <NavButton
@@ -35,31 +39,29 @@ export default function Navigation() {
           to="/"
           style={{ color: '#000' }}
           activeStyle={{}}
-          onClick={() => setActiveIcon(true)}
+          onClick={() => setActiveIcon(2)}
         >
-          {activeIcon ? <AiFillPlusSquare /> : <AiOutlinePlusSquare />}
+          {activeIcon === 2 ? <AiFillPlusSquare /> : <AiOutlinePlusSquare />}
           Watch
         </NavButton>
         <NavButton
           as={NavLink}
           to="/"
-          style={{ color: 'var(--darkgrey)' }}
-          activeStyle={{
-            color: 'var(--orange)',
-          }}
+          style={{ color: '#000' }}
+          activeStyle={{}}
+          onClick={() => setActiveIcon(3)}
         >
-          <AiOutlineCalendar />
+          {activeIcon === 3 ? <AiFillCalendar /> : <AiOutlineCalendar />}
           Events
         </NavButton>
         <NavButton
           as={NavLink}
           to="/"
-          style={{ color: 'var(--darkgrey)' }}
-          activeStyle={{
-            color: 'var(--orange)',
-          }}
+          style={{ color: '#000' }}
+          activeStyle={{}}
+          onClick={() => setActiveIcon(4)}
         >
-          <BsPerson />
+          {activeIcon === 4 ? <BsFillPersonFill /> : <BsPerson />}
           Profile
         </NavButton>
       </Nav>

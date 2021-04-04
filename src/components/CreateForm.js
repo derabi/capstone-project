@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function CreateForm({ onAddNewCard }) {
   const [dateInput, setDateInput] = useState(false)
@@ -23,7 +24,7 @@ export default function CreateForm({ onAddNewCard }) {
           </select>
         </label>
         <label>
-          Adresse
+          Straße
           <input name="address" />
         </label>
         <label>
@@ -41,7 +42,7 @@ export default function CreateForm({ onAddNewCard }) {
           <SingleDateLabel>
             Einmalig
             <SingleDateRadio
-              name="dates"
+              name="returning"
               type="radio"
               value="einmalig"
               onChange={() => {
@@ -53,13 +54,14 @@ export default function CreateForm({ onAddNewCard }) {
           {dateInput ? (
             <Test>
               {' '}
-              <input name="dates" type="date" /> <input name="es" type="time" />{' '}
+              <input name="dates" type="date" />{' '}
+              <input name="times" type="time" />{' '}
             </Test>
           ) : null}
           <MultiDatesLabel>
             <span>Regelmäßig</span>
             <MultiDatesRadio
-              name="dates"
+              name="returning"
               type="radio"
               value="regelmäßig"
               onChange={() => {
@@ -150,24 +152,39 @@ export default function CreateForm({ onAddNewCard }) {
       description,
       price,
       frequency,
+      returning,
+      times,
     } = form.elements
-
-    const quatschig = {
+    const uuid = uuidv4()
+    const uploadProduct = {
+      uuid: uuid,
       title: title.value,
       category: category.value,
       address: address.value,
       zip: zip.value,
       city: city.value,
-      dates: dates.value,
       description: description.value,
       price: price.value,
+    }
+
+    const uploadOeffnungszeiten = {
+      uuid: uuid,
+      dates: dates.value,
       frequency: frequency.value,
+      returning: returning.value,
+      times: times.value,
     }
 
     fetch('http://localhost:8000/products/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(quatschig),
+      body: JSON.stringify(uploadProduct),
+    })
+
+    fetch('http://localhost:8000/oeffnungszeiten/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(uploadOeffnungszeiten),
     })
 
     form.reset()

@@ -61,66 +61,149 @@
       "altText": "Boxen Icon"
     }
   ],
+  "oeffnungszeiten": [
+    {
+      "id": 1,
+      "startTime": "780",
+      "startDay": "1",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 2
+    },
+    {
+      "id": 2,
+      "startTime": "810",
+      "startDay": "1",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 2
+    },
+    {
+      "id": 3,
+      "startTime": "15",
+      "startDay": "15",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 2
+    },
+    {
+      "id": 4,
+      "startTime": "810",
+      "startDay": "6",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 2
+    },
+    {
+      "id": 5,
+      "startTime": "825",
+      "startDay": "9",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 2
+    },
+    {
+      "id": 6,
+      "startTime": "825",
+      "startDay": "10",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 2
+    },
+    {
+      "id": 7,
+      "startTime": "825",
+      "startDay": "5",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 2
+    },
+    {
+      "id": 8,
+      "startTime": "825",
+      "startDay": "4",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 2
+    },
+    {
+      "uuid": "92cdcc18-a1a1-40ec-b679-894218766710",
+      "dates": "",
+      "frequency": "einmalig",
+      "id": 9
+    },
+    {
+      "uuid": "94eb8043-e1e4-4d5a-baed-266c7d64975e",
+      "dates": "einmalig",
+      "frequency": "einmalig",
+      "id": 10
+    },
+    {
+      "uuid": "49f069b0-1ccb-443d-951e-7d7e078bfab9",
+      "dates": "2021-05-12",
+      "frequency": "einmalig",
+      "returning": "einmalig",
+      "id": 11
+    }
+  ],
   "appointments": [
     {
-      "timeHour": "",
-      "timeMinute": "",
-      "dateDay": "",
-      "dateMonth": "",
-      "dateYear": "",
-      "productID": "1",
+      "thisTime": "0",
+      "thisDay": 1,
+      "thisMonth": 4,
+      "thisYear": 2021,
+      "productID": "2",
       "id": 1
     },
     {
-      "time": "",
-      "dateDay": "13",
-      "dateMonth": "01",
-      "dateYear": "2021",
-      "productID": "1",
+      "thisTime": "825",
+      "thisDay": "10",
+      "thisMonth": 4,
+      "thisYear": 2021,
+      "productID": "2",
       "id": 2
     },
     {
-      "time": "630",
-      "dateDay": "16",
-      "dateMonth": 11,
-      "dateYear": "2021",
-      "productID": "1",
+      "thisTime": "780",
+      "thisDay": "1",
+      "thisMonth": 4,
+      "thisYear": 2021,
+      "productID": "2",
       "id": 3
     },
     {
-      "time": "630",
-      "dateDay": "14",
-      "dateMonth": 4,
-      "dateYear": 2021,
+      "thisTime": "810",
+      "thisDay": "6",
+      "thisMonth": 4,
+      "thisYear": 2021,
       "productID": "2",
       "id": 4
     },
     {
-      "time": "645",
-      "dateDay": "14",
-      "dateMonth": 5,
-      "dateYear": 2021,
-      "productID": "1",
+      "thisTime": "810",
+      "thisDay": "6",
+      "thisMonth": 4,
+      "thisYear": 2021,
+      "productID": "2",
       "id": 5
     },
     {
-      "time": "885",
-      "dateDay": "16",
-      "dateMonth": 6,
-      "dateYear": 2022,
+      "thisTime": "810",
+      "thisDay": "6",
+      "thisMonth": 4,
+      "thisYear": 2021,
       "productID": "2",
       "id": 6
     },
     {
-      "time": "780",
-      "dateDay": "17",
-      "dateMonth": 8,
-      "dateYear": 2021,
-      "productID": "1",
+      "thisTime": "810",
+      "thisDay": "6",
+      "thisMonth": 4,
+      "thisYear": 2021,
+      "productID": "2",
       "id": 7
     }
   ],
-  "bookmarks": [],
   "products": [
     {
       "id": 1,
@@ -193,6 +276,41 @@
       "zip": "80331",
       "city": "München",
       "dates": "Mo, Do, Fr"
+    },
+    {
+      "uuid": "92cdcc18-a1a1-40ec-b679-894218766710",
+      "title": "Masihs Git Tutorial",
+      "category": "basketball",
+      "address": "Fasananker",
+      "zip": "22222",
+      "city": "Hamburg",
+      "dates": "",
+      "description": "Hallo",
+      "price": "10",
+      "frequency": "einmalig",
+      "id": 7
+    },
+    {
+      "uuid": "94eb8043-e1e4-4d5a-baed-266c7d64975e",
+      "title": "Gökhans Umzugshilfe",
+      "category": "laufen",
+      "address": "Muratstraße",
+      "zip": "22222",
+      "city": "Hamburg",
+      "description": "Weil es so ist!",
+      "price": "6000",
+      "id": 8
+    },
+    {
+      "uuid": "49f069b0-1ccb-443d-951e-7d7e078bfab9",
+      "title": "Gökhans Umzugshilfe",
+      "category": "fussball",
+      "address": "Fasananker",
+      "zip": "22222",
+      "city": "Hamburg",
+      "description": "hjbnjk",
+      "price": "4000",
+      "id": 9
     }
   ]
 }

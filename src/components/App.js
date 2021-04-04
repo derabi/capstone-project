@@ -8,6 +8,7 @@ import ProductCard from './ProductCard'
 import Review from './Review'
 import CreateForm from './CreateForm'
 import BookAppointment from './BookAppointment'
+import Bookings from './Bookings'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -18,6 +19,9 @@ export default function App() {
       <Router>
         <div>
           <Switch>
+            <Route exact path="/bookings">
+              <Bookings />
+            </Route>
             <Route exact path="/create">
               <CreateForm />
             </Route>

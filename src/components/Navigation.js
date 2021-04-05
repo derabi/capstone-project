@@ -14,11 +14,7 @@ import { BsPerson } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'
 
 export default function Navigation() {
-  const [activeIcon, setActiveIcon] = useState(1)
-
-  function handleClick(prop) {
-    setActiveIcon(true)
-  }
+  const [activeIcon, setActiveIcon] = useState()
 
   return (
     <IconContext.Provider value={{ size: '20px' }}>
@@ -28,7 +24,6 @@ export default function Navigation() {
           exact
           to="/"
           style={{ color: '#000' }}
-          activeStyle={{}}
           onClick={() => setActiveIcon(1)}
         >
           {activeIcon === 1 ? <AiFillHome /> : <AiOutlineHome />}
@@ -36,9 +31,8 @@ export default function Navigation() {
         </NavButton>
         <NavButton
           as={NavLink}
-          to="/"
+          to="/watch"
           style={{ color: '#000' }}
-          activeStyle={{}}
           onClick={() => setActiveIcon(2)}
         >
           {activeIcon === 2 ? <AiFillPlusSquare /> : <AiOutlinePlusSquare />}
@@ -46,9 +40,8 @@ export default function Navigation() {
         </NavButton>
         <NavButton
           as={NavLink}
-          to="/"
+          to="/bookings"
           style={{ color: '#000' }}
-          activeStyle={{}}
           onClick={() => setActiveIcon(3)}
         >
           {activeIcon === 3 ? <AiFillCalendar /> : <AiOutlineCalendar />}
@@ -56,9 +49,8 @@ export default function Navigation() {
         </NavButton>
         <NavButton
           as={NavLink}
-          to="/"
+          to="/profile"
           style={{ color: '#000' }}
-          activeStyle={{}}
           onClick={() => setActiveIcon(4)}
         >
           {activeIcon === 4 ? <BsFillPersonFill /> : <BsPerson />}
@@ -73,8 +65,8 @@ const Nav = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 5px 0;
-  background: #eee;
-  box-shadow: 0 2px 5px;
+  background: #fff;
+  box-shadow: 0 1px 5px;
 `
 
 const NavButton = styled.button`

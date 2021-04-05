@@ -16,4 +16,5 @@ const AppGrid = styled.div`
   max-width: 800px;
   margin: 0 auto;
   height: 100vh;
+  overflow-y: scroll;
 `

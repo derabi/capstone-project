@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import Grid from './Grid'
+import Head from './Head'
+import WatchPage from './WatchPage'
 import Navigation from './Navigation'
 import Categories from './Categories'
 import Results from './Results'
@@ -18,7 +20,13 @@ export default function App() {
     <AppLayout>
       <Router>
         <div>
+          <Header>
+            <Head />
+          </Header>
           <Switch>
+            <Route exact path="/watch">
+              <WatchPage />
+            </Route>
             <Route exact path="/bookings">
               <Bookings />
             </Route>
@@ -50,10 +58,18 @@ export default function App() {
 const AppLayout = styled.div`
   display: grid;
   overflow-y: scroll;
+  padding: 45px 0;
 `
 
 const Footer = styled.footer`
   bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+`
+
+const Header = styled.header`
+  top: 0;
   left: 0;
   position: fixed;
   right: 0;

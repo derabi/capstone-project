@@ -26,6 +26,7 @@ export default function WatchCard({
     })
     console.log(id)
   }
+  let path = '/products/' + id.toString()
   return (
     <IconContext.Provider value={{ size: '14px' }}>
       <Card>

@@ -11,7 +11,7 @@ export const daten = [
     image: F1,
     altText: '',
     title: 'Fußball bei Victoria Hamburg',
-    stars: 4,
+    stars: 5,
     price: 20,
     frequency: 'monatlich',
     zip: '22529',

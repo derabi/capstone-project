@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import Grid from './Grid'
-import Head from './Head'
 import WatchPage from './WatchPage'
 import Navigation from './Navigation'
 import Categories from './Categories'
@@ -13,6 +12,7 @@ import BookAppointment from './BookAppointment'
 import Bookings from './Bookings'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Profil from './Profil'
 
 export default function App() {
   const [userInput, setUserInput] = useState('')
@@ -20,9 +20,6 @@ export default function App() {
     <AppLayout>
       <Router>
         <div>
-          <Header>
-            <Head />
-          </Header>
           <Switch>
             <Route exact path="/watch">
               <WatchPage />
@@ -32,6 +29,9 @@ export default function App() {
             </Route>
             <Route exact path="/create">
               <CreateForm />
+            </Route>
+            <Route exact path="/profil">
+              <Profil />
             </Route>
             <Route exact path="/">
               <Categories />
@@ -63,13 +63,6 @@ const AppLayout = styled.div`
 
 const Footer = styled.footer`
   bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-`
-
-const Header = styled.header`
-  top: 0;
   left: 0;
   position: fixed;
   right: 0;

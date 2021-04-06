@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 200 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(1,0,0,1,-502.554,-303.672)">
-        <g transform="matrix(1.1925,0,0,1.1925,317.188,-34.0439)">
-            <text x="152.956px" y="322.095px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:47.163px;">O<tspan x="192.741px 202.128px 236.316px 259.589px " y="322.095px 322.095px 322.095px 322.095px ">lmyp</tspan></text>
+    <g transform="matrix(0.987193,0,0,0.987193,-9.50119e-14,0.042094)">
+        <g transform="matrix(1.1925,0,0,1.1925,-185.367,-337.716)">
+            <text x="152.956px" y="322.095px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:47.163px;">O<tspan x="192.741px 202.542px 225.815px 261.34px " y="322.095px 322.095px 322.095px 322.095px ">lymp</tspan></text>
         </g>
-        <g transform="matrix(1.1925,0,0,1.1925,489.039,-34.0439)">
+        <g transform="matrix(1.1925,0,0,1.1925,-10.9209,-337.716)">
             <text x="152.956px" y="322.095px" style="font-family:'Futura-Medium', 'Futura', sans-serif;font-weight:500;font-size:47.163px;">x</text>
         </g>
-        <g transform="matrix(0.793963,0,0,0.793963,624.569,292.832)">
+        <g transform="matrix(0.793963,0,0,0.793963,124.101,-10.8397)">
             <g transform="matrix(0.913917,0,0,0.913917,4.1978,6.20428)">
                 <g transform="matrix(1.61401,0,0,0.848442,-28.8122,6.62565)">
                     <path d="M48.317,77.138L51.682,77.138L53.074,43.717L46.925,43.717L48.317,77.138Z" style="fill-rule:nonzero;"/>

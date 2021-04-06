@@ -17,10 +17,12 @@ import { AiOutlinePlusSquare } from 'react-icons/ai'
 import { AiFillPlusSquare } from 'react-icons/ai'
 import { AiFillCalendar } from 'react-icons/ai'
 import { AiFillHome } from 'react-icons/ai'
+import { IoMdArrowDropdown } from 'react-icons/io'
 
-import { useHistory, useParams, withRouter } from 'react-router-dom'
+import { useHistory, useParams, withRouter, Link } from 'react-router-dom'
 
 export default function ProductCard({}) {
+  const [dropdown, setDropdown] = useState('10')
   let [bookmarkedCard, setbookmarkedCard] = useState(0)
   let [reviewCards, setreviewCards] = useState([])
   const { id } = useParams()
@@ -84,7 +86,7 @@ export default function ProductCard({}) {
 
   return (
     <IconContext.Provider value={{ size: '14px' }}>
-      <Card key={id}>
+      <Card>
         <HeaderWrapper>
           <Title>{title}</Title>
           <BookmarkWrapper>
@@ -102,7 +104,7 @@ export default function ProductCard({}) {
         <MainWrapper>
           <DetailsWrapper>
             <Price>
-              {price > 0 ? price + '€' : 'Kostenlos'} {frequency}
+              {price > 0 ? dropdown + '€' : 'Kostenlos'} {frequency}
             </Price>
             <ProviderWrapper>
               <AiFillHome />
@@ -119,7 +121,29 @@ export default function ProductCard({}) {
               <Dates>{dates}</Dates>
             </DatesWrapper>
           </DetailsWrapper>
-          <DropdownForm />
+          <DropdownFormi>
+            <DropdownLabel>
+              Wähle eine Option
+              <Dropdown
+                value={dropdown}
+                onChange={e => {
+                  setDropdown(e.target.value)
+                }}
+              >
+                <option value="10">2. Herren Mannschaft</option>
+                <option value="15">A-Jugend</option>
+                <option value="20">B-Jugend</option>
+                <option value="25">C-Jugend</option>
+                <option value="30">D-Jugend</option>
+                <option value="35">E-Jugend</option>
+                <option value="40">E-Jugend</option>
+              </Dropdown>
+              <DropdownIcon />
+            </DropdownLabel>
+            <Link to={`/products/${id}/book`}>
+              <DropdownButton>Termin Buchen</DropdownButton>
+            </Link>
+          </DropdownFormi>
           <DescriptionWrapper>
             <DescriptionTitle>Beschreibung</DescriptionTitle>
             <Description>{description}</Description>
@@ -168,6 +192,8 @@ export default function ProductCard({}) {
 
 const Card = styled.div`
   width: 100vw;
+  margin-top: -48px;
+  margin-bottom: 20px;
 `
 
 const HeaderWrapper = styled.section`
@@ -303,4 +329,43 @@ const ProviderName = styled.h5`
   font-size: 12px;
   margin: 0;
   line-height: 1.3em;
+`
+const DropdownFormi = styled.form`
+  display: grid;
+  gap: 5px;
+`
+
+const DropdownLabel = styled.label`
+  font-size: 12px;
+  font-weight: 600;
+`
+
+const Dropdown = styled.select`
+  -webkit-appearance: none;
+  background-color: #eee;
+  border: 0 solid transparent;
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  position: relative;
+  outline: none;
+`
+const DropdownIcon = styled(IoMdArrowDropdown)`
+  width: 20px;
+  height: auto;
+  position: absolute;
+  right: 10px;
+  margin-top: 15px;
+`
+
+const DropdownButton = styled.button`
+  width: 80%;
+  height: 50px;
+  border: 0 solid transparent;
+  border-radius: 5px;
+  background-color: black;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 35px;
 `

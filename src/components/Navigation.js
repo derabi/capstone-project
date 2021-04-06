@@ -14,7 +14,7 @@ import { BsPerson } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'
 
 export default function Navigation() {
-  const [activeIcon, setActiveIcon] = useState()
+  const [activeIcon, setActiveIcon] = useState(3)
 
   return (
     <IconContext.Provider value={{ size: '20px' }}>
@@ -49,7 +49,7 @@ export default function Navigation() {
         </NavButton>
         <NavButton
           as={NavLink}
-          to="/profile"
+          to="/profil"
           style={{ color: '#000' }}
           onClick={() => setActiveIcon(4)}
         >
@@ -64,14 +64,15 @@ export default function Navigation() {
 const Nav = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding: 5px 0;
+  align-items: center;
+  height: 48px;
   background: #fff;
-  box-shadow: 0 1px 5px;
+  box-shadow: 0 0 3px;
 `
 
 const NavButton = styled.button`
   display: grid;
-  font-size: 10px;
+  font-size: 12px;
   gap: 3px;
   justify-items: center;
   text-decoration: none;

@@ -2,11 +2,16 @@ import { useState } from 'react'
 import styled from 'styled-components/macro'
 
 import { IoMdArrowDropdown } from 'react-icons/io'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export default function DropdownForm() {
-  const [dropdown, setDropdown] = useState('20')
+  const [dropdown, setDropdown] = useState('10')
 
+  const { id } = useParams()
+
+  const handleChange = e => {
+    setDropdown(e)
+  }
   return (
     <Form>
       <Label>
@@ -14,7 +19,7 @@ export default function DropdownForm() {
         <Dropdown
           value={dropdown}
           onChange={e => {
-            setDropdown(e.target.value)
+            handleChange(e.target.value)
           }}
         >
           <option value="10">2. Herren Mannschaft</option>
@@ -27,7 +32,7 @@ export default function DropdownForm() {
         </Dropdown>
         <DropdownIcon />
       </Label>
-      <Link to="/products/1/book">
+      <Link to={`/products/${id}/book`}>
         <Button>Termin Buchen</Button>
       </Link>
     </Form>
@@ -71,5 +76,5 @@ const Button = styled.button`
   color: #fff;
   font-size: 12px;
   font-weight: 500;
-  margin: 0 auto;
+  margin: 0 35px;
 `

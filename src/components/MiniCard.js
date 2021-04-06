@@ -36,9 +36,7 @@ export default function MiniCard({
               <AiOutlineStar />
             ))}
           </StarsWrapper>
-          <Price>
-            {price}€ {frequency}
-          </Price>
+          <Price>{price > 0 ? 'Ab ' + price + '€ ' : 'Kostenlos'}</Price>
           <PlaceWrapper>
             <FaMapMarkerAlt />
             <Place>
@@ -74,7 +72,6 @@ const Card = styled.section`
   background-color: #eee;
   color: black;
   text-decoration: none;
-  margin: 0 5px;
 `
 
 const ImageWrapper = styled.div``

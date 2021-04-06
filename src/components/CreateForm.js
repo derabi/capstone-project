@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
+import { useHistory } from 'react-router-dom'
 
 export default function CreateForm({ onAddNewCard }) {
   const [dateInput, setDateInput] = useState(false)
   const [dayInput, setDayInput] = useState(false)
+
+  const history = useHistory()
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -24,7 +27,7 @@ export default function CreateForm({ onAddNewCard }) {
           </select>
         </label>
         <label>
-          Straße
+          Straße und Hausnummer
           <input name="address" />
         </label>
         <label>
@@ -165,6 +168,10 @@ export default function CreateForm({ onAddNewCard }) {
       city: city.value,
       description: description.value,
       price: price.value,
+      dates: dates.value,
+      image: 'fussballImage3.png',
+      creatorId: 1,
+      stars: 5,
     }
 
     const uploadOeffnungszeiten = {
@@ -179,6 +186,9 @@ export default function CreateForm({ onAddNewCard }) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(uploadProduct),
+    }).then(() => {
+      //history.go(-1);
+      history.push('/profil')
     })
 
     fetch('http://localhost:8000/oeffnungszeiten/', {

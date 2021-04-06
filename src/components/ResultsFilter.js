@@ -23,7 +23,6 @@ export default function ResultsFilter({ userInput, setUserInput }) {
 
 const FilterContainer = styled.form``
 const FilterByName = styled.label`
-  padding: 10px 5px;
   position: relative;
   display: flex;
   align-items: center;
@@ -36,4 +35,7 @@ const Input = styled.input`
   padding: 10px 30px;
   font-size: 14px;
   outline: none;
+  &:focus {
+    border: 1px solid black;
+  }
 `

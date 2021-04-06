@@ -25,7 +25,7 @@ const Card = styled.button`
   align-items: center;
   flex-grow: 1;
   height: 150px;
-  width: 150px;
+  width: 100%;
   background-color: #eee;
   color: #000;
   text-decoration: none;

@@ -3,62 +3,62 @@
     {
       "id": "1",
       "title": "Fußball",
-      "icon": "../icons/fussballIcon.svg",
+      "icon": "fussballIcon.svg",
       "altText": "Fussball Icon"
     },
     {
       "id": "2",
       "title": "Laufen",
-      "icon": "../icons/laufenIcon.svg",
+      "icon": "laufenIcon.svg",
       "altText": "Laufen Icon"
     },
     {
       "id": "3",
       "title": "Fitness",
-      "icon": "../icons/fitnessIcon.svg",
+      "icon": "fitnessIcon.svg",
       "altText": "Fitness Icon"
     },
     {
       "id": "4",
       "title": "Turnen",
-      "icon": "../icons/turnenIcon.svg",
+      "icon": "turnenIcon.svg",
       "altText": "Turnen Icon"
     },
     {
       "id": "5",
       "title": "Basketball",
-      "icon": "../icons/basketballIcon.svg",
+      "icon": "basketballIcon.svg",
       "altText": "Basketball Icon"
     },
     {
       "id": "6",
       "title": "Football",
-      "icon": "../icons/footballIcon.svg",
+      "icon": "footballIcon.svg",
       "altText": "Football Icon"
     },
     {
       "id": "7",
       "title": "Hockey",
-      "icon": "../icons/hockeyIcon.svg",
+      "icon": "hockeyIcon.svg",
       "altText": "Hockey Icon"
     },
     {
       "id": "8",
       "title": "Volleyball",
-      "icon": "../icons/volleyballIcon.svg",
+      "icon": "volleyballIcon.svg",
       "altText": "Volleyball Icon"
     },
     {
       "id": "9",
       "title": "Tennis",
-      "icon": "../icons/tennisIcon.svg",
+      "icon": "tennisIcon.svg",
       "altText": "Tennis Icon"
     },
     {
       "id": "10",
-      "title": "Boxen",
-      "icon": "../icons/boxenIcon.svg",
-      "altText": "Boxen Icon"
+      "title": "Bowling",
+      "icon": "bowlingIcon.svg",
+      "altText": "Bowling Icon"
     }
   ],
   "oeffnungszeiten": [
@@ -68,45 +68,81 @@
       "startDay": "1",
       "startMonth": 4,
       "startYear": 2021,
-      "PID": 2
-    }
-  ],
-  "appointments": [
-    {
-      "thisTime": "0",
-      "thisDay": 1,
-      "thisMonth": 4,
-      "thisYear": 2021,
-      "productID": "2",
-      "id": 1
-    }
-  ],
-  "favorites": [
+      "PID": 1
+    },
     {
       "id": 2,
-      "pId": 2
+      "startTime": "810",
+      "startDay": "1",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 1
     },
     {
       "id": 3,
-      "pId": 3
+      "startTime": "15",
+      "startDay": "15",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 1
     },
     {
-      "pId": 1,
-      "id": 4
+      "id": 4,
+      "startTime": "810",
+      "startDay": "6",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 1
+    },
+    {
+      "id": 5,
+      "startTime": "825",
+      "startDay": "9",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 1
+    },
+    {
+      "id": 6,
+      "startTime": "825",
+      "startDay": "10",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 1
+    },
+    {
+      "id": 7,
+      "startTime": "825",
+      "startDay": "5",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 1
+    },
+    {
+      "id": 8,
+      "startTime": "825",
+      "startDay": "4",
+      "startMonth": 4,
+      "startYear": 2021,
+      "PID": 1
     }
   ],
+  "appointments": [],
   "products": [
     {
       "id": 1,
       "image": "fussballImage1.png",
       "altText": "",
       "title": "Fußball bei Victoria Hamburg",
-      "stars": 4,
-      "price": 20,
+      "stars": 5,
+      "price": 10,
+      "provider": "SC Victoria Hamburg",
+      "address": "Lokstedter Steindamm 87",
       "frequency": "monatlich",
       "zip": "22529",
       "city": "Hamburg",
-      "dates": "Mo, Di, Mi, Do, Fr"
+      "dates": "Mo, Di, Mi, Do, Fr",
+      "description": "Der Sport-Club Victoria Hamburg von 1895 e. V., kurz SC Victoria Hamburg oder einfach nur Victoria Hamburg oder SC Victoria, ist ein Sportverein in Hamburg. beheimatet ist der Verein in den Stadtteilen Hoheluft, Eppendorf und Lokstedt. Die angrenzenden Stadtteile zählen zum näheren Einzugsgebiet des Vereins."
     },
     {
       "id": 2,
@@ -115,6 +151,7 @@
       "title": "Junioren Fußball Union Berlin",
       "stars": 3,
       "price": 10,
+      "address": "Muratstraße",
       "frequency": "monatlich",
       "zip": "12555",
       "city": "Berlin",
@@ -125,7 +162,8 @@
       "image": "fussballImage3.png",
       "altText": "",
       "title": "Frauenfußball beim ETV",
-      "stars": 5,
+      "stars": 4,
+      "address": "Muratstraße",
       "price": 15,
       "frequency": "monatlich",
       "zip": "20144",
@@ -139,6 +177,7 @@
       "title": "Fußball im Stadtpark",
       "stars": 2,
       "price": 0,
+      "address": "Muratstraße",
       "frequency": "",
       "zip": "22303",
       "city": "Hamburg",
@@ -151,6 +190,7 @@
       "title": "Kicken in der Soccerhalle",
       "stars": 5,
       "price": 10,
+      "address": "Muratstraße",
       "frequency": "",
       "zip": "30519",
       "city": "Hannover",
@@ -163,45 +203,12 @@
       "title": "Fußball in München",
       "stars": 1,
       "price": 50,
+      "address": "Muratstraße",
       "frequency": "monatlich",
       "zip": "80331",
       "city": "München",
       "dates": "Mo, Do, Fr"
-    },
-    {
-      "uuid": "92cdcc18-a1a1-40ec-b679-894218766710",
-      "title": "Masihs Git Tutorial",
-      "category": "basketball",
-      "address": "Fasananker",
-      "zip": "22222",
-      "city": "Hamburg",
-      "dates": "",
-      "description": "Hallo",
-      "price": "10",
-      "frequency": "einmalig",
-      "id": 7
-    },
-    {
-      "uuid": "94eb8043-e1e4-4d5a-baed-266c7d64975e",
-      "title": "Gökhans Umzugshilfe",
-      "category": "laufen",
-      "address": "Muratstraße",
-      "zip": "22222",
-      "city": "Hamburg",
-      "description": "Weil es so ist!",
-      "price": "6000",
-      "id": 8
-    },
-    {
-      "uuid": "49f069b0-1ccb-443d-951e-7d7e078bfab9",
-      "title": "Gökhans Umzugshilfe",
-      "category": "fussball",
-      "address": "Fasananker",
-      "zip": "22222",
-      "city": "Hamburg",
-      "description": "hjbnjk",
-      "price": "4000",
-      "id": 9
     }
-  ]
+  ],
+  "favorites": []
 }

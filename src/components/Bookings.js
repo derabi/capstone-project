@@ -12,13 +12,16 @@ const Bookings = () => {
   )
 
   return (
-    <div class="Bookings">
-      {error && <div>{error}</div>}
-      {isPending && <div>Loading...</div>}
-      {appointments && products && (
-        <Bookinglist appointments={appointments} products={products} />
-      )}
-    </div>
+    <>
+      <Head title="Termine" />
+      <div class="Bookings">
+        {error && <div>{error}</div>}
+        {isPending && <div>Loading...</div>}
+        {appointments && products && (
+          <Bookinglist appointments={appointments} products={products} />
+        )}
+      </div>
+    </>
   )
 }
 

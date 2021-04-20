@@ -3,6 +3,8 @@ import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
 import { useHistory } from 'react-router-dom'
 
+import Head from './Head'
+
 export default function CreateForm({ onAddNewCard }) {
   const [dateInput, setDateInput] = useState(false)
   const [dayInput, setDayInput] = useState(false)
@@ -10,137 +12,142 @@ export default function CreateForm({ onAddNewCard }) {
   const history = useHistory()
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Header>Erstelle ein Sportangebot</Header>
-      <DataWrapper>
-        <label>
-          Titel
-          <input name="title" placeholder="z.B. Fußball beim FC Musterverein" />
-        </label>
-        <label for="category">
-          Sportart
-          <select name="category">
-            <option value="fussball">Fußball</option>
-            <option value="laufen">Laufen</option>
-            <option value="basketball">Basketball</option>
-            <option value="fitness">Fitness</option>
-          </select>
-        </label>
-        <label>
-          Straße und Hausnummer
-          <input name="address" />
-        </label>
-        <label>
-          Postleitzahl
-          <input name="zip" />
-        </label>
-        <label>
-          Stadt
-          <input name="city" />
-        </label>
-      </DataWrapper>
-      <DatesLabel>
-        Termine
-        <DatesWrapper>
-          <SingleDateLabel>
-            Einmalig
-            <SingleDateRadio
-              name="returning"
-              type="radio"
-              value="einmalig"
-              onChange={() => {
-                setDateInput(true)
-                setDayInput(false)
-              }}
+    <>
+      <Head title="Event erstellen" />
+      <Form onSubmit={handleSubmit}>
+        <DataWrapper>
+          <label>
+            Titel
+            <input
+              name="title"
+              placeholder="z.B. Fußball beim FC Musterverein"
             />
-          </SingleDateLabel>
-          {dateInput ? (
-            <Test>
-              {' '}
-              <input name="dates" type="date" />{' '}
-              <input name="times" type="time" />{' '}
-            </Test>
-          ) : null}
-          <MultiDatesLabel>
-            <span>Regelmäßig</span>
-            <MultiDatesRadio
-              name="returning"
-              type="radio"
-              value="regelmäßig"
-              onChange={() => {
-                setDateInput(false)
-                setDayInput(true)
-              }}
+          </label>
+          <label for="category">
+            Sportart
+            <select name="category">
+              <option value="fussball">Fußball</option>
+              <option value="laufen">Laufen</option>
+              <option value="basketball">Basketball</option>
+              <option value="fitness">Fitness</option>
+            </select>
+          </label>
+          <label>
+            Straße und Hausnummer
+            <input name="address" />
+          </label>
+          <label>
+            Postleitzahl
+            <input name="zip" />
+          </label>
+          <label>
+            Stadt
+            <input name="city" />
+          </label>
+        </DataWrapper>
+        <DatesLabel>
+          Termine
+          <DatesWrapper>
+            <SingleDateLabel>
+              Einmalig
+              <SingleDateRadio
+                name="returning"
+                type="radio"
+                value="einmalig"
+                onChange={() => {
+                  setDateInput(true)
+                  setDayInput(false)
+                }}
+              />
+            </SingleDateLabel>
+            {dateInput ? (
+              <Test>
+                {' '}
+                <input name="dates" type="date" />{' '}
+                <input name="times" type="time" />{' '}
+              </Test>
+            ) : null}
+            <MultiDatesLabel>
+              <span>Regelmäßig</span>
+              <MultiDatesRadio
+                name="returning"
+                type="radio"
+                value="regelmäßig"
+                onChange={() => {
+                  setDateInput(false)
+                  setDayInput(true)
+                }}
+              />
+            </MultiDatesLabel>
+            {dayInput ? (
+              <DayContainer>
+                <DayLabel>
+                  Montag
+                  <input name="dates" type="checkbox" value="monday" />
+                </DayLabel>
+                <DayLabel>
+                  Dienstag
+                  <input name="dates" type="checkbox" value="tuesday" />
+                </DayLabel>
+                <DayLabel>
+                  Mittwoch
+                  <input name="dates" type="checkbox" value="wendnesday" />
+                </DayLabel>
+                <DayLabel>
+                  Donnerstag
+                  <input name="dates" type="checkbox" value="thursday" />
+                </DayLabel>
+                <DayLabel>
+                  Freitag
+                  <input name="dates" type="checkbox" value="friday" />
+                </DayLabel>
+                <DayLabel>
+                  Samstag
+                  <input name="dates" type="checkbox" value="saturday" />
+                </DayLabel>
+                <DayLabel>
+                  Sonntag
+                  <input name="dates" type="checkbox" value="sunday" />
+                </DayLabel>
+              </DayContainer>
+            ) : null}
+          </DatesWrapper>
+        </DatesLabel>
+        <DescriptionWrapper>
+          <DescriptionLabel>
+            Beschreibung
+            <Description
+              name="description"
+              placeholder="Schreibe eine Beschreibung zu deinem Angebot"
             />
-          </MultiDatesLabel>
-          {dayInput ? (
-            <DayContainer>
-              <DayLabel>
-                Montag
-                <input name="dates" type="checkbox" value="monday" />
-              </DayLabel>
-              <DayLabel>
-                Dienstag
-                <input name="dates" type="checkbox" value="tuesday" />
-              </DayLabel>
-              <DayLabel>
-                Mittwoch
-                <input name="dates" type="checkbox" value="wendnesday" />
-              </DayLabel>
-              <DayLabel>
-                Donnerstag
-                <input name="dates" type="checkbox" value="thursday" />
-              </DayLabel>
-              <DayLabel>
-                Freitag
-                <input name="dates" type="checkbox" value="friday" />
-              </DayLabel>
-              <DayLabel>
-                Samstag
-                <input name="dates" type="checkbox" value="saturday" />
-              </DayLabel>
-              <DayLabel>
-                Sonntag
-                <input name="dates" type="checkbox" value="sunday" />
-              </DayLabel>
-            </DayContainer>
-          ) : null}
-        </DatesWrapper>
-      </DatesLabel>
-      <DescriptionWrapper>
-        <DescriptionLabel>
-          Beschreibung
-          <Description
-            name="description"
-            placeholder="Schreibe eine Beschreibung zu deinem Angebot"
-          />
-        </DescriptionLabel>
-      </DescriptionWrapper>
-      <PriceWrapper>
-        <label>
-          Preis
-          <InputSymbol>
-            <PriceInput
-              placeholder="z.B. 10"
-              name="price"
-              type="number"
-              step="0.01"
-              min="0"
-            />
-          </InputSymbol>
-        </label>
-        <label for="frequency">
-          <FrequencySelect name="frequency">
-            <option value="einmalig">einmalig</option>
-            <option value="täglich">täglich</option>
-            <option value="wöchentlich">wöchentlich</option>
-            <option value="monatlich">monatlich</option>
-            <option value="jährlich">jährlich</option>
-          </FrequencySelect>
-        </label>
-      </PriceWrapper>
-      <SubmitButton text="add"> Hinzufügen </SubmitButton>
-    </Form>
+          </DescriptionLabel>
+        </DescriptionWrapper>
+        <PriceWrapper>
+          <label>
+            Preis
+            <InputSymbol>
+              <PriceInput
+                placeholder="z.B. 10"
+                name="price"
+                type="number"
+                step="0.01"
+                min="0"
+              />
+            </InputSymbol>
+          </label>
+          <label for="frequency">
+            <FrequencySelect name="frequency">
+              <option value="einmalig">einmalig</option>
+              <option value="täglich">täglich</option>
+              <option value="wöchentlich">wöchentlich</option>
+              <option value="monatlich">monatlich</option>
+              <option value="jährlich">jährlich</option>
+            </FrequencySelect>
+          </label>
+        </PriceWrapper>
+        <SubmitButton text="add"> Hinzufügen </SubmitButton>
+      </Form>
+    </>
   )
   function handleSubmit(event) {
     event.preventDefault()
@@ -209,6 +216,7 @@ const Header = styled.p`
 const Form = styled.form`
   display: grid;
   gap: 20px;
+  margin: 10px 0;
   padding: 10px;
   h2 {
     font-size: 16px;

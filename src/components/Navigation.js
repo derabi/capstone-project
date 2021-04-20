@@ -14,7 +14,7 @@ import { BsPerson } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'
 
 export default function Navigation() {
-  const [activeIcon, setActiveIcon] = useState(3)
+  const [activeIcon, setActiveIcon] = useState(1)
 
   return (
     <IconContext.Provider value={{ size: '20px' }}>

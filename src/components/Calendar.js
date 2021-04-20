@@ -1,9 +1,15 @@
 import { useState } from 'react'
 import { useHistory, useParams, withRouter } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import LinesEllipsis from 'react-lines-ellipsis'
 
+import { IconContext } from 'react-icons'
 import { IoMdArrowDropleft } from 'react-icons/io'
 import { IoMdArrowDropright } from 'react-icons/io'
+import { FaMapMarkerAlt } from 'react-icons/fa'
+import { AiFillCalendar } from 'react-icons/ai'
+import { AiFillStar } from 'react-icons/ai'
+import { AiOutlineStar } from 'react-icons/ai'
 
 import Head from './Head'
 
@@ -282,21 +288,40 @@ const { data: appointments } = useFetch('http://localhost:8000/appointments');
 
   const productPreview = () => {
     return (
-      <div className="product">
-        <div className="product-preview-left-block">
-          <img src={loadImage()} width="100%" height="auto" />
-        </div>
-        <div className="product-preview-middle-block">
-          {products.title}
-          <br />
-          {products.price} €
-        </div>
-        <div className="product-preview-right-block">
-          {products.address}
-          <br />
-          {products.zip} {products.city}
-        </div>
-      </div>
+      <IconContext.Provider value={{ size: '14px' }}>
+        <CardIntro>Du buchst</CardIntro>
+        <Card>
+          <ImageWrapper>
+            <Image src={loadImage()} />
+          </ImageWrapper>
+          <DetailsWrapper>
+            <TitleWrapper>
+              <LinesEllipsis text={products.title} maxLine="1" />
+            </TitleWrapper>
+            <StarsWrapper>
+              {[...Array(5)].map(star => (
+                <AiFillStar />
+              ))}
+              {[...Array(0)].map(star => (
+                <AiOutlineStar />
+              ))}
+            </StarsWrapper>
+            <Price>
+              {products.price > 0 ? products.price + '€ ' : 'Kostenlos'}
+            </Price>
+            <PlaceWrapper>
+              <FaMapMarkerAlt />
+              <Place>
+                {products.zip} {products.city}
+              </Place>
+            </PlaceWrapper>
+            <DatesWrapper>
+              <AiFillCalendar />
+              <Dates>{products.dates}</Dates>
+            </DatesWrapper>
+          </DetailsWrapper>
+        </Card>
+      </IconContext.Provider>
     )
   }
 
@@ -326,18 +351,17 @@ const { data: appointments } = useFetch('http://localhost:8000/appointments');
               </div>
               <FreeDates>
                 <FreeDatesTitle>Freie Termine </FreeDatesTitle>
-                <div>
+                <div className="time-wrapper">
                   {loadTimes}
                   {getBookings}
                   {getOeffnungszeiten}
                 </div>
               </FreeDates>
             </TimeWrapper>
+
+            <Product>{productPreview()}</Product>
+            <BookingButton type="submit">Termin buchen</BookingButton>
           </CalendarWrapper>
-          {productPreview()}
-          <button className="bookbutton" type="submit">
-            Termin buchen
-          </button>
         </Form>
       </Wrapper>
     </>
@@ -347,14 +371,14 @@ const { data: appointments } = useFetch('http://localhost:8000/appointments');
 export default Calendar
 
 const Wrapper = styled.main`
-  padding: 10px 5px;
+  padding: 30px 5px;
 `
 
 const Form = styled.form``
 
 const CalendarWrapper = styled.section`
   display: grid;
-  gap: 50px;
+  gap: 30px;
 `
 
 const MonthPicker = styled.div`
@@ -377,4 +401,84 @@ const FreeDatesTitle = styled.h3`
   font-size: 12px;
   font-weight: 600;
   margin: 0;
+`
+
+const Product = styled.div``
+
+const ProductWrapper = styled.section`
+  display: flex;
+  gap: 10px;
+`
+
+const CardIntro = styled.h3`
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 10px;
+`
+
+const Card = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+  background-color: #eee;
+  color: black;
+  text-decoration: none;
+`
+
+const ImageWrapper = styled.div``
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+`
+
+const DetailsWrapper = styled.div`
+  display: grid;
+  gap: 5px;
+  margin: 10px 0;
+`
+
+const TitleWrapper = styled.h2`
+  font-size: 12px;
+  margin: 0;
+`
+
+const StarsWrapper = styled.div``
+
+const Price = styled.span`
+  font-size: 14px;
+  margin: 0;
+`
+
+const DatesWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+`
+
+const Dates = styled.div`
+  font-size: 12px;
+`
+
+const PlaceWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+`
+
+const Place = styled.div`
+  font-size: 12px;
+`
+
+const BookingButton = styled.button`
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+  border: 0 solid transparent;
+  border-radius: 5px;
+  background-color: black;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
 `

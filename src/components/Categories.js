@@ -7,7 +7,7 @@ import Head from './Head'
 export default function Categories() {
   return (
     <>
-      <Head />
+      <Head title="Sport in deiner Nähe" />
       <CategoriesWrapper>
         {categories.map(category => (
           <Link to="/products">

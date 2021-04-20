@@ -24,7 +24,6 @@ a:visited {
 .time-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin-left:15px;
   font-size: 14px;
 }
 .time-wrapper-textline {
@@ -78,7 +77,7 @@ input[type="radio"]:checked+label{
   display:inline-block;
 }
 .timeslabel:hover{
-  background:grey;
+  background:#eee;
 }
 .arrow {
   border-radius: 30px;
@@ -103,6 +102,7 @@ text-align:center;
 }
 .dayslabel-disabled {
   text-align: center;
+  font-size: 14px;
   vertical-align: middle;
   line-height: 30px; 
   margin:1px;
@@ -127,35 +127,59 @@ padding-top:15px;
 padding-bottom:5px;
 padding-left:5px;
 }
-.product-preview-left-block {
-  display:inline-block;
-  width:25vw;
-  height:auto;
-  padding-left:15px;
+
+.product-preview-right-block {
+  display: grid;
+  gap: 5px;
+  margin: 10px 0;
 }
-.product-preview-middle-block {
-  font-size:10pt;
-  display:inline-block;
-  width:50vw;
-  height:auto;
-  padding-left:15px;
-  vertical-align: top;
+.product-preview-price {
+  font-size:14px;
+  align-items: flex-end;
+  display:flex;
+  align-items:top;
+  gap: 5px;
 }
-.product-preview-right-block{
-  font-size:10pt;
-  display:inline-block;
-  height:auto;
-  width:25vw;
-  vertical-align: top;
+
+.product-preview-date, .product-preview-time{
+  font-size:12px;
+  align-items: flex-end;
+  display:flex;
+  align-items:top;
+  gap: 5px;
 }
+
+.product-preview-city {
+  font-size:12px;
+  display:flex;
+  align-items:top;
+  gap: 5px;
+  line-height: 1.2em;
+}
+
+.product-preview-title {
+  font-size:12px;
+  margin:0;
+  font-weight:700;
+  display:flex;
+  align-items:top;
+  gap: 5px;
+}
+
 .terminObjekt {
-  background: #f2f2f2;
-  font-size:10pt;
-  border-bottom:2px solid white;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+  background-color: #eee;
+  color: black;
+  text-decoration: none;
 }
+
 .terminObjekt-image {
-  width:30px;
+  width:100%;
+  height:100%;
 }
+
 .termine-header{
   padding-top:15px;
   padding-bottom:5px;

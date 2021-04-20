@@ -4,12 +4,16 @@ import WatchCard from './WatchCard'
 import { products } from '../material/data/data.json'
 import { Link } from 'react-router-dom'
 
+import Head from './Head'
+
 export default function WatchPage({ userInput, setUserInput }) {
   const { data: favorites, error, isPending } = useFetch(
     'http://localhost:8000/favorites/'
   )
   return (
-    <>
+    <Wrapper>
+      <Head title="Watchlist" />
+      <Intro>Dich interessieren folgende Events:</Intro>
       <ResultsWrapper>
         {error && <div>{error}</div>}
         {isPending && <div>Loading...</div>}
@@ -36,14 +40,23 @@ export default function WatchPage({ userInput, setUserInput }) {
             })
           )}
       </ResultsWrapper>
-    </>
+    </Wrapper>
   )
 }
 
-const ResultsWrapper = styled.section`
+const Wrapper = styled.main`
   display: grid;
-  gap: 5px;
+  gap: 10px;
+  margin: 20px 5px;
 `
+
+const Intro = styled.h2`
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+`
+
+const ResultsWrapper = styled.section``
 const Link1 = styled(Link)`
   text-decoration: none;
 `
